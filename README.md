@@ -20,7 +20,7 @@ https://learn.microsoft.com/en-us/windows/wsl/install
 To launch the notebook server for this lab:
 ### Bash
 ```
-docker run --name linux-basics --rm -v "$(pwd)"/lab:/usr/project/lab:Z -p 8888:8888 adrianbranescu93/jupyter-node
+docker run --name linux-basics -d -v "$(pwd)"/lab:/usr/project/lab:Z -p 8888:8888 adrianbranescu93/jupyter-node
 ```
 
 ```
@@ -29,7 +29,7 @@ docker run --name linux-basics-interactive --rm -it --entrypoint /bin/bash -v "$
 
 ### PowerShell
 ```
-docker run --name linux-basics --rm -v "$pwd\lab:/usr/project/lab" -p 8888:8888 adrianbranescu93/jupyter-node
+docker run --name linux-basics -d -v "$pwd\lab:/usr/project/lab" -p 8888:8888 adrianbranescu93/jupyter-node
 ```
 
 ```
