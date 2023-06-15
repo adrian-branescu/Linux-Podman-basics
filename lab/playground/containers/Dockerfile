@@ -2,7 +2,7 @@ FROM nginx:mainline-alpine
 
 # all of these are happening when we build an image/container
 # these files/directories are inside the container
-# we can see them with docker exec -it $container_id /bin/sh (runs shell on container)
+# we can see them with docker exec -it $container_id /bin/sh (runs shell in container)
 
 
 # removes contents from conf.d directory
