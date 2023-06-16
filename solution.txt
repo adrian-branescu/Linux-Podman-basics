@@ -1,0 +1,13 @@
+Solution for Homework1:
+
+1. tar cf - archive -P
+-> strage impreuna mai multe file-uri pentru a le arhiva dupa cu gzip
+2. (du -sb archive | awk '{print $1}')
+-> du estimeaza spatiul folosit de un fisier, -s sumarizeaza si b afiseaza numarul estimat in bytes
+-> acest output este trimis la awk care printeaza doar prima coloana aka nr de bytes
+3. pv -s $()
+-> procesul tar este monitorizat de pv (bara aia draguta care ne arata progresul)
+-> -s asumeaza si numarul de date care va fi transferat, acesta este deci calculat cu partea de la comanda 2, deci stie sa arate progresul comenzii tar (asa cred, nu sunt 100% sigura)
+4. gzip ia outputul si il arhiveaza si isi pune output aka arhiva in lab3.tar.gz
+
+Deci practic toata comanda arhiveaza acel fisier, insa ne ajutam de pv pentru a monitoriza procesul
