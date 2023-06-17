@@ -11,3 +11,6 @@ Solution for Homework1:
 4. gzip ia outputul si il arhiveaza si isi pune output aka arhiva in lab3.tar.gz
 
 Deci practic toata comanda arhiveaza acel fisier, insa ne ajutam de pv pentru a monitoriza procesul
+
+Docker:
+-> am adaugat 2 comenzi in Dockerfile care muta imaginea in (..)/html/images/
