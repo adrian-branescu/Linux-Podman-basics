@@ -1,0 +1,10 @@
+tar cf - archive -P:
+	-> creeaza o arhiva (c) cu numele (f) "archive" 
+	-> -P: pastreaza numele absolute ale fisierelor (leading '/')
+pv -s $(du -sb archive | awk '{print $1}'):
+	-> pv -s: monitorizeaza transferul unui numar fix de bytes
+	-> du -sb archive: aproximeaza dimensiunea totala a lui archive in bytes 
+	-> awk '{print $1}' : printeaza prima linie a output-ului dat de "du -sb archive"
+	-> impreuna, monitorizeaza transferul total arhivei (adica intreaga sa dimensiune)
+gzip > lab3.tar.gz:
+	-> outputul lui pv e comprimat si trimis in arhiva lab3.tar.gz
