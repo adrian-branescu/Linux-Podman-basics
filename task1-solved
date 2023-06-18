@@ -1,0 +1,12 @@
+tar cf - archive -P | pv -s $(du -sb archive | awk '{print $1}') | gzip > lab3.tar.gz
+
+Comanda pe bucați:
+
+tar cf - archive -P: Această parte a comenzii creează un arhivă numită "archive" cu conținutul directorului curent, inclusiv subdirectoarele și fișierele acestuia. Opțiunea -cf indică crearea unei arhive, iar - specifică că arhiva va fi afișată pe ieșirea standard (stdout) în loc să fie salvată într-un fișier.
+Opțiunea -P este folosită pentru a păstra căile absolute ale fișierelor și directoarelor în arhivă, astfel încât să păstrăm structura originală a directorului "archive" în arhivă.
+
+pv -s $(du -sb archive | awk '{print $1}'): Această parte a comenzii utilizează utilitarul "pv" pentru a afișa progresul transferului arhivei prin intermediul unui canal de date (pipe). Opțiunea -s specifică dimensiunea totală a datelor care urmează să fie transferate. Dimensiunea totală este obținută utilizând comanda du -sb archive | awk '{print $1}', care returnează dimensiunea în octeți (-b) a directorului "archive". Rezultatul este furnizat apoi lui pv pentru a afișa progresul transferului.
+
+gzip > lab3.tar.gz: Această parte a comenzii utilizează utilitarul "gzip" pentru a comprima datele arhivei primite prin canalul de date (pipe). Utilizând simbolul > și specificând numele fișierului "lab3.tar.gz", ieșirea comprimată este redirecționată către fișierul cu acest nume. Astfel, arhiva este comprimată și salvată în fișierul "lab3.tar.gz".
+
+Explanation powered by Chat GPT :). Stiam unele din comenzi, dar am preferat sa caut pe net si sa intreb chat-ul pentru explicatii mai in detaliu. Pe scurt, se creeaza o arhiva cu continutul directorului curent, se monitorizeaza progresul si se comprima apoi cu gzip in lab3.tar.gz.
