@@ -1,0 +1,13 @@
+tar cf - archive -P | pv -s $(du -sb archive | awk '{print $1}') | gzip > lab3.tar.gz
+
+tar cf - archive -P: creates an archive based on the "archive" directory while making
+    sure no slash will be stripped when creating the archive and redirects the output
+    to stdout, so it can be used with the | operator.
+
+pv -s: shows data progress while receiving the total amount of bytes
+
+du -sb archive: prints the size of the "archive" directory (in bytes)
+
+awk '{print $1}': returns the first word(the size of "archive") from the output of du -sb
+
+gzip: compresses the tar archive and redirects the output to lab3.tar.gz
